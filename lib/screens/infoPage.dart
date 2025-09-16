@@ -196,41 +196,46 @@ class _InfopageState extends State<Infopage> {
                   ),
                   const Spacer(),
                   Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 10),
                     decoration: BoxDecoration(
                       color: Colors.deepPurple[50],
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Row(
-                      children: [
-                        IconButton(
-                          onPressed: () async {
-                            Provider.of<userProvider>(context, listen: false)
-                                .removeValue();
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(20),
+                      onTap: () async {
+                        // Clear user from provider
+                        Provider.of<userProvider>(context, listen: false)
+                            .removeValue();
 
-                            // Sign out from Firebase
-                            await FirebaseAuth.instance.signOut();
+                        // Sign out from Firebase
+                        await FirebaseAuth.instance.signOut();
 
-                            Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => StartPage()),
-                              (route) => false, // removes all previous routes
-                            );
-                          },
-                          icon: const Icon(Icons.logout),
-                          color: Colors.purple,
-                          iconSize: 20,
-                        ),
-                        const SizedBox(width: 4),
-                        const Text("Log Out",
+                        // Navigate to StartPage
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => StartPage()),
+                          (route) => false,
+                        );
+                      },
+                      child: Row(
+                        mainAxisSize: MainAxisSize
+                            .min, // 👈 keeps Row only as wide as needed
+                        children: [
+                          Icon(Icons.logout, color: Colors.purple, size: 20),
+                          const SizedBox(width: 8),
+                          const Text(
+                            "Log Out",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.purple)),
-                      ],
+                              fontWeight: FontWeight.bold,
+                              color: Colors.purple,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
+                  )
                 ],
               ),
               const SizedBox(height: 24),

@@ -12,7 +12,20 @@
           "package_name": "com.isro"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "196550173747-snbav81icnscjdr7knq35bh5ge7mfcqa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.isro",
+            "certificate_hash": "d0afa1e1186044b752d76df6c6f15b11c559f603"
+          }
+        },
+        {
+          "client_id": "196550173747-s8qethjl9g5usjl17achj1mvb74tedls.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyApWE2wbrqgUGQyxZkO8fPlatO-HIV92tI"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "196550173747-s8qethjl9g5usjl17achj1mvb74tedls.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

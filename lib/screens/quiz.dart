@@ -48,7 +48,8 @@ class _QuizPageState extends State<QuizPage> {
   Future<void> loadQuiz() async {
     await _questionService.loadQuestions();
     setState(() {
-      quizQuestions = _questionService.getQuestions(widget.category, widget.level);
+      quizQuestions =
+          _questionService.getQuestions(widget.category, widget.level);
     });
   }
 
@@ -95,8 +96,13 @@ class _QuizPageState extends State<QuizPage> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) =>
-              ResultPage(score: score, total: 10, userName: _user!.userName ?? "Guest",category: widget.category,level: widget.level,),
+          builder: (context) => ResultPage(
+            score: score,
+            total: 10,
+            userName: _user!.userName ?? "Guest",
+            category: widget.category,
+            level: widget.level,
+          ),
         ),
       );
     }
@@ -160,13 +166,14 @@ class _QuizPageState extends State<QuizPage> {
           ),
         ),
       ),
-      
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             // Timer
             Align(
               alignment: Alignment.topRight,
@@ -181,18 +188,19 @@ class _QuizPageState extends State<QuizPage> {
 
             // Question
             Container(
-              padding:
-                  const EdgeInsets.all(12), // adds spacing inside the container
+              width: double.infinity, // 👈 same as options
+              padding: const EdgeInsets.all(16),
+              margin: const EdgeInsets.symmetric(vertical: 8),
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 152, 91, 143),
-                borderRadius: BorderRadius.circular(8), // smooth corners
+                borderRadius: BorderRadius.circular(12),
               ),
               child: Text(
                 "Q${currentIndex + 1}. ${question["question"]}",
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
-                  color: Colors.white, // for better contrast
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -204,17 +212,20 @@ class _QuizPageState extends State<QuizPage> {
               return GestureDetector(
                 onTap: () => checkAnswer(i),
                 child: Container(
-                  margin: const EdgeInsets.symmetric(vertical: 8),
+                  alignment:Alignment.center,
+                  width: double.infinity, // 👈 matches question box
                   padding: const EdgeInsets.all(16),
+                  margin: const EdgeInsets.symmetric(vertical: 8),
                   decoration: BoxDecoration(
                     color: selectedOption == i
-                        ? Color.fromRGBO(91, 106, 152, 1)
-                        : Color.fromRGBO(61, 57, 61, 1),
+                        ? const Color.fromRGBO(91, 106, 152, 1)
+                        : const Color.fromRGBO(61, 57, 61, 1),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Text(options[i],
-                      style:
-                          const TextStyle(fontSize: 18, color: Colors.white)),
+                  child: Text(
+                    options[i],
+                    style: const TextStyle(fontSize: 18, color: Colors.white),
+                  ),
                 ),
               );
             }),
@@ -223,14 +234,14 @@ class _QuizPageState extends State<QuizPage> {
 
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(vertical: 16,horizontal: 150),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          foregroundColor: Color.fromARGB(255, 255, 255, 255),
-                          backgroundColor:
-                             const Color.fromARGB(255, 152, 91, 143),
-                        ),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 16, horizontal: 150),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                foregroundColor: Color.fromARGB(255, 255, 255, 255),
+                backgroundColor: const Color.fromARGB(255, 152, 91, 143),
+              ),
               onPressed: nextQuestion,
               child: Text(
                   currentIndex == quizQuestions.length - 1 ? "Finish" : "Next"),

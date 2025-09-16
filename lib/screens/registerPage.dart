@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:isro/models/user.dart';
 import 'package:isro/screens/loginPage.dart';
+import 'package:isro/screens/success.dart';
+import 'package:isro/screens/warning.dart';
 import '../services/userOperations.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -11,6 +13,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  bool isLoading =false;
   UserClassOperations operate = UserClassOperations();
   UserClass u = UserClass.register(userMail: '', userPassword: '', userName: '');
   final _formKey = GlobalKey<FormState>();
@@ -24,7 +27,44 @@ class _RegisterPageState extends State<RegisterPage> {
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
 
+  void showFloatingWarning(String message) {
+    final overlay = Overlay.of(context, rootOverlay: true);
+
+    if (overlay == null) {
+      debugPrint("No overlay found in context!");
+      return;
+    }
+
+    OverlayEntry overlayEntry = OverlayEntry(
+      builder: (context) => FloatingWarning(message: message),
+    );
+
+    // Insert overlay
+    overlay.insert(overlayEntry);
+
+    // Remove after 2 sec
+    Future.delayed(const Duration(seconds: 2), () {
+      overlayEntry.remove();
+    });
+  }
+
+  void showFloatingSuccess(String message) {
+    OverlayEntry overlayEntry = OverlayEntry(
+      builder: (context) => FloatingSuccess(message: message),
+    );
+
+    // Insert the overlay
+    Overlay.of(context).insert(overlayEntry);
+
+    // Remove the overlay after 2 seconds
+    Future.delayed(const Duration(seconds: 2), () {
+      overlayEntry.remove();
+    });
+  }
+
   Future<void> _submitForm() async {
+    isLoading = true;
+    setState(() {});
     final form = _formKey.currentState;
     if (form != null && form.validate()) {
       u.userMail = _emailController.text.trim();
@@ -34,15 +74,74 @@ class _RegisterPageState extends State<RegisterPage> {
       int a = await operate.create(u);
       int b = await operate.add(u);
       if (a == 1 && b == 1) {
+        isLoading = false;
+    setState(() {});
+        showFloatingSuccess("Registration successful");
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const LoginPage()),
         );
       } else {
-        print("User already exists");
+        isLoading = false;
+    setState(() {});
+        showFloatingWarning("User already exists");
       }
     }
+    else{
+      isLoading = false;
+    setState(() {});
+      print("Error in form");
+    }
   }
+
+  String? _validateUsername(String? value) {
+      if (value == null || value.isEmpty) {
+        return "Required";
+      } else if (!RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
+          .hasMatch(value)) {
+        return "Enter a valid email address";
+      }
+      return null; // No error
+    }
+
+  String? _nameValidator(String? value) {
+      if (value == null || value.isEmpty) {
+        return "Name is required";
+      }
+      if (value.length < 2) {
+        return "Name must be at least 2 characters long";
+      }
+      return null;
+    }
+  
+  String? _validatePassword(String? value) {
+      // Check if password is empty
+      if (value == null || value.isEmpty) {
+        return "Required";
+      }
+
+      // Check for minimum length
+      if (value.length < 8) {
+        return "Must be at least 8 characters long";
+      }
+
+      // Check for at least one uppercase letter
+      if (!RegExp(r'(?=.*[A-Z])').hasMatch(value)) {
+        return "Must contain one uppercase letter";
+      }
+
+      // Check for at least one number
+      if (!RegExp(r'(?=.*[0-9])').hasMatch(value)) {
+        return "Must contain one number";
+      }
+
+      // Check for at least one special character
+      if (!RegExp(r'(?=.*[!@#$%^&*(),.?":{}|<>])').hasMatch(value)) {
+        return "Must contain one special character";
+      }
+
+      return null; // No error
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +157,10 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
           ),
 
+          
           // Scrollable content
+          isLoading
+              ? Center(child: CircularProgressIndicator()):
           SafeArea(
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(24.0),
@@ -88,35 +190,28 @@ class _RegisterPageState extends State<RegisterPage> {
 
                         // Name
                         TextFormField(
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
                           controller: _nameController,
                           keyboardType: TextInputType.name,
                           style: const TextStyle(color: Colors.white),
                           decoration: _inputDecoration("Name", Icons.person),
-                          validator: (value) =>
-                              value == null || value.isEmpty ? "Enter name" : null,
-                        ),
+                          validator: _nameValidator,),
                         const SizedBox(height: 20),
 
                         // Email
                         TextFormField(
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
                           controller: _emailController,
                           keyboardType: TextInputType.emailAddress,
                           style: const TextStyle(color: Colors.white),
                           decoration: _inputDecoration("Email", Icons.email),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Enter email";
-                            }
-                            if (!value.contains("@")) {
-                              return "Enter valid email";
-                            }
-                            return null;
-                          },
+                          validator: _validateUsername,
                         ),
                         const SizedBox(height: 20),
 
                         // Password
                         TextFormField(
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
                           controller: _passwordController,
                           obscureText: _obscurePassword,
                           style: const TextStyle(color: Colors.white),
@@ -134,9 +229,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   });
                                 },
                               )),
-                          validator: (value) => value == null || value.length < 6
-                              ? "Password must be at least 6 characters"
-                              : null,
+                          validator: _validatePassword
                         ),
                         const SizedBox(height: 20),
 

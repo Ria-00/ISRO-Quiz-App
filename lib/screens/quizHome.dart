@@ -17,18 +17,13 @@ class Quizhome extends StatefulWidget {
 }
 
 class _QuizhomeState extends State<Quizhome> {
-  int _selectedIndex = 0;
   List<Map<String, dynamic>> quizzes = [];
+   List<Map<String, dynamic>> filteredQuizzes = [];
   UserClass? _user;
   UserClassOperations operations = UserClassOperations();
+  String searchQuery = "";
 
   final List<String> categories = ["Spacecrafts", "Rockets", "ISRO"];
-
-  void _onTabTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   void initState() {
@@ -40,9 +35,22 @@ class _QuizhomeState extends State<Quizhome> {
   void _getQuizzes() async {
     String userEmail =
         Provider.of<userProvider>(context, listen: false).email ?? '';
-    List<Map<String, dynamic>> fetchedQuizzes = await operations.fetchUserQuizzes(userEmail);
+    List<Map<String, dynamic>> fetchedQuizzes =
+        await operations.fetchUserQuizzes(userEmail);
     setState(() {
       quizzes = fetchedQuizzes;
+      filteredQuizzes = fetchedQuizzes;
+    });
+  }
+
+  void _filterQuizzes(String query) {
+    setState(() {
+      searchQuery = query.toLowerCase();
+      filteredQuizzes = quizzes.where((quiz) {
+        final title = quiz["quiz"].toString().toLowerCase();
+        final level = quiz["level"].toString().toLowerCase();
+        return title.contains(searchQuery) || level.contains(searchQuery);
+      }).toList();
     });
   }
 
@@ -165,41 +173,46 @@ class _QuizhomeState extends State<Quizhome> {
                   ),
                   const Spacer(),
                   Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 10),
                     decoration: BoxDecoration(
                       color: Colors.deepPurple[50],
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Row(
-                      children: [
-                        IconButton(
-                          onPressed: () async {
-                            Provider.of<userProvider>(context, listen: false)
-                                .removeValue();
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(20),
+                      onTap: () async {
+                        // Clear user from provider
+                        Provider.of<userProvider>(context, listen: false)
+                            .removeValue();
 
-                            // Sign out from Firebase
-                            await FirebaseAuth.instance.signOut();
+                        // Sign out from Firebase
+                        await FirebaseAuth.instance.signOut();
 
-                            Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => StartPage()),
-                              (route) => false, // removes all previous routes
-                            );
-                          },
-                          icon: const Icon(Icons.logout),
-                          color: Colors.purple,
-                          iconSize: 20,
-                        ), // use iconSize
-                        SizedBox(width: 4),
-                        Text("Log Out",
+                        // Navigate to StartPage
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => StartPage()),
+                          (route) => false,
+                        );
+                      },
+                      child: Row(
+                        mainAxisSize: MainAxisSize
+                            .min, // 👈 keeps Row only as wide as needed
+                        children: [
+                          Icon(Icons.logout, color: Colors.purple, size: 20),
+                          const SizedBox(width: 8),
+                          const Text(
+                            "Log Out",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.purple)),
-                      ],
+                              fontWeight: FontWeight.bold,
+                              color: Colors.purple,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
+                  )
                 ],
               ),
 
@@ -218,6 +231,7 @@ class _QuizhomeState extends State<Quizhome> {
                     borderSide: BorderSide.none,
                   ),
                 ),
+                onChanged: _filterQuizzes
               ),
 
               const SizedBox(height: 20),
@@ -322,21 +336,28 @@ class _QuizhomeState extends State<Quizhome> {
               const SizedBox(height: 12),
 
               // build recent cards dynamically
-              Column(
-                children: quizzes.map((quiz) {
-                  String subject = quiz["quiz"];
-                  String subtitle = quiz["level"];
-                  int score =
-                      quiz["score"];
-                  Color bgColor = quiz["score"] > 0
-                      ? Colors.green[100]!
-                      : Colors.orange[100]!;
-                  Color textColor =
-                      quiz["score"] > 0 ? Colors.green : Colors.orange;
+              filteredQuizzes.isEmpty
+                  ? const Center(
+                      child: Text(
+                        "No quizzes found",
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    )
+                  : Column(
+                      children: filteredQuizzes.map((quiz) {
+                        String subject = quiz["quiz"];
+                        String subtitle = quiz["level"];
+                        int score = quiz["score"];
+                        Color bgColor = quiz["score"] > 0
+                            ? Colors.green[100]!
+                            : Colors.orange[100]!;
+                        Color textColor =
+                            quiz["score"] > 0 ? Colors.green : Colors.orange;
 
-                  return _buildRecentCard(subject,subtitle,score, bgColor, textColor);
-                }).toList(),
-              ),
+                        return _buildRecentCard(
+                            subject, subtitle, score, bgColor, textColor);
+                      }).toList(),
+                    ),
             ],
           ),
         ),
@@ -377,11 +398,11 @@ class _QuizhomeState extends State<Quizhome> {
             child: Text(
               "${score ?? 0} / 10",
               style: TextStyle(
-              color: textColor,
-              fontWeight: FontWeight.bold,
-              ),
+                color: textColor,
+                fontWeight: FontWeight.bold,
               ),
             ),
+          ),
         ],
       ),
     );
