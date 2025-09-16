@@ -110,13 +110,11 @@ assets/
 
 ## Notes
 
-* The app was initially built in a **15-hour sprint**, so some features are in a rough draft state.
 * Future improvements can include additional subjects, question categories, and enhanced UI/UX.
 
 ## Demo
 
-[Short demo video link here]
+https://drive.google.com/file/d/1b8Jq4OPYcKZ8YGgVn8rf8QqniwrZLTiv/view?usp=drive_web
 
 ---
 
-For any questions or support, please contact: **[your-email@example.com](mailto:your-email@example.com)**
