@@ -1,0 +1,476 @@
+{
+  "Spacecrafts": {
+    "Easy": [
+      {
+        "question": "Which planet is known as the Red Planet?",
+        "options": ["Earth", "Mars", "Jupiter", "Venus"],
+        "correct": 1
+      },
+      {
+        "question": "What does NASA stand for?",
+        "options": ["National Aeronautics and Space Administration", "National Aerospace and Space Agency", "National Aeronautics and Science Association", "National Astronaut Service Agency"],
+        "correct": 0
+      },
+      {
+        "question": "Which spacecraft first landed humans on the Moon?",
+        "options": ["Apollo 11", "Sputnik 1", "Vostok 1", "Challenger"],
+        "correct": 0
+      },
+      {
+        "question": "Which planet has the most moons?",
+        "options": ["Earth", "Mars", "Jupiter", "Saturn"],
+        "correct": 2
+      },
+      {
+        "question": "What is the main purpose of a space telescope?",
+        "options": ["Travel to other planets", "Observe celestial objects", "Measure Earth's weather", "Test rockets"],
+        "correct": 1
+      },
+      {
+        "question": "Who was the first human in space?",
+        "options": ["Neil Armstrong", "Yuri Gagarin", "Buzz Aldrin", "Valentina Tereshkova"],
+        "correct": 1
+      },
+      {
+        "question": "Which planet is closest to the Sun?",
+        "options": ["Venus", "Mercury", "Earth", "Mars"],
+        "correct": 1
+      },
+      {
+        "question": "Which spacecraft was the first artificial satellite?",
+        "options": ["Apollo 11", "Sputnik 1", "Hubble", "Voyager 1"],
+        "correct": 1
+      },
+      {
+        "question": "What is the name of the galaxy we live in?",
+        "options": ["Andromeda", "Milky Way", "Whirlpool", "Triangulum"],
+        "correct": 1
+      },
+      {
+        "question": "Which force keeps planets in orbit around the Sun?",
+        "options": ["Magnetism", "Gravity", "Friction", "Electricity"],
+        "correct": 1
+      }
+    ],
+    "Medium": [
+      {
+        "question": "Which spacecraft explored Pluto in 2015?",
+        "options": ["Voyager 2", "New Horizons", "Cassini", "Pioneer 10"],
+        "correct": 1
+      },
+      {
+        "question": "What does ISS stand for?",
+        "options": ["International Space Station", "Interstellar Space Shuttle", "Intersolar Satellite System", "International Satellite Station"],
+        "correct": 0
+      },
+      {
+        "question": "Which spacecraft took the first close-up photos of Jupiter?",
+        "options": ["Galileo", "Cassini", "Viking", "Hubble"],
+        "correct": 0
+      },
+      {
+        "question": "Which spacecraft studied Saturn and its moons for 13 years?",
+        "options": ["Cassini", "Juno", "Voyager 1", "Apollo 11"],
+        "correct": 0
+      },
+      {
+        "question": "Which planet is known for its rings?",
+        "options": ["Jupiter", "Saturn", "Uranus", "Neptune"],
+        "correct": 1
+      },
+      {
+        "question": "Which NASA mission studied asteroids Bennu and Ryugu?",
+        "options": ["OSIRIS-REx & Hayabusa2", "Apollo 12 & 13", "Voyager 1 & 2", "Chandrayaan 1 & 2"],
+        "correct": 0
+      },
+      {
+        "question": "Which telescope is in space and observes distant galaxies?",
+        "options": ["Hubble Space Telescope", "Kepler", "Spitzer", "Chandra"],
+        "correct": 0
+      },
+      {
+        "question": "Which spacecraft carried the first living monkeys to space?",
+        "options": ["Sputnik 2", "Mercury 7", "Vostok 1", "Apollo 1"],
+        "correct": 0
+      },
+      {
+        "question": "Which spacecraft took the first photo of Earth from space?",
+        "options": ["Explorer 6", "Sputnik 1", "Voyager 1", "Apollo 8"],
+        "correct": 0
+      },
+      {
+        "question": "Which spacecraft helped map the surface of Venus?",
+        "options": ["Magellan", "Pioneer Venus", "Venera", "Galileo"],
+        "correct": 0
+      }
+    ],
+    "Hard": [
+      {
+        "question": "Which spacecraft carried the first humans to orbit the Moon?",
+        "options": ["Apollo 8", "Apollo 11", "Gemini 12", "Skylab"],
+        "correct": 0
+      },
+      {
+        "question": "Which spacecraft performed the first flyby of Pluto?",
+        "options": ["New Horizons", "Voyager 2", "Pioneer 10", "Galileo"],
+        "correct": 0
+      },
+      {
+        "question": "Which mission discovered water ice on the Moon?",
+        "options": ["Chandrayaan-1", "Apollo 15", "Lunar Prospector", "Surveyor 7"],
+        "correct": 0
+      },
+      {
+        "question": "Which spacecraft studied Jupiter’s Great Red Spot extensively?",
+        "options": ["Galileo", "Juno", "Voyager 1", "Cassini"],
+        "correct": 1
+      },
+      {
+        "question": "Which probe entered Saturn’s atmosphere to collect data?",
+        "options": ["Huygens", "Cassini", "Pioneer 11", "Voyager 2"],
+        "correct": 0
+      },
+      {
+        "question": "Which spacecraft detected exoplanets using transit method?",
+        "options": ["Kepler", "Hubble", "TESS", "Spitzer"],
+        "correct": 0
+      },
+      {
+        "question": "Which spacecraft studied Mercury’s surface and magnetic field?",
+        "options": ["MESSENGER", "Mariner 10", "BepiColombo", "Pioneer 5"],
+        "correct": 0
+      },
+      {
+        "question": "Which spacecraft sent the first close-up images of Uranus?",
+        "options": ["Voyager 2", "Hubble", "Cassini", "Galileo"],
+        "correct": 0
+      },
+      {
+        "question": "Which spacecraft carried the first robotic rover to Mars?",
+        "options": ["Sojourner", "Spirit", "Opportunity", "Curiosity"],
+        "correct": 0
+      },
+      {
+        "question": "Which mission studied the Sun’s outer atmosphere in detail?",
+        "options": ["Parker Solar Probe", "SOHO", "Solar Orbiter", "Ulysses"],
+        "correct": 0
+      }
+    ]
+  },
+  "Rockets": {
+    "Easy": [
+      {
+        "question": "Which country launched the first artificial satellite?",
+        "options": ["USA", "Soviet Union", "China", "India"],
+        "correct": 1
+      },
+      {
+        "question": "What is the main fuel type used in most rockets?",
+        "options": ["Gasoline", "Liquid hydrogen", "Diesel", "Kerosene"],
+        "correct": 3
+      },
+      {
+        "question": "Which rocket first took humans to the Moon?",
+        "options": ["Saturn V", "Falcon 9", "Soyuz", "Ariane 5"],
+        "correct": 0
+      },
+      {
+        "question": "What force must a rocket overcome to leave Earth?",
+        "options": ["Magnetism", "Gravity", "Friction", "Air resistance"],
+        "correct": 1
+      },
+      {
+        "question": "What does a rocket nozzle do?",
+        "options": ["Stores fuel", "Directs exhaust gases", "Measures speed", "Stabilizes flight"],
+        "correct": 1
+      },
+      {
+        "question": "Which company developed Falcon 9 rocket?",
+        "options": ["NASA", "SpaceX", "Blue Origin", "Roscosmos"],
+        "correct": 1
+      },
+      {
+        "question": "What is the main purpose of a rocket booster?",
+        "options": ["Generate thrust", "Store fuel", "Communicate", "Navigate"],
+        "correct": 0
+      },
+      {
+        "question": "Which is a reusable rocket developed by SpaceX?",
+        "options": ["Saturn V", "Falcon 9", "Ariane 5", "Delta IV"],
+        "correct": 1
+      },
+      {
+        "question": "What does 'payload' mean in rockets?",
+        "options": ["Fuel", "Passengers", "Cargo carried to space", "Engine part"],
+        "correct": 2
+      },
+      {
+        "question": "Which rocket launched the first human into space?",
+        "options": ["Saturn V", "Vostok 1", "Soyuz", "Falcon 1"],
+        "correct": 1
+      }
+    ],
+    "Medium": [
+      {
+        "question": "Which rocket family is used by NASA for Space Shuttle launches?",
+        "options": ["Saturn", "Delta", "Space Shuttle External Tank", "Atlas"],
+        "correct": 2
+      },
+      {
+        "question": "Which rocket is planned for NASA’s Artemis Moon missions?",
+        "options": ["Falcon Heavy", "SLS", "Ariane 6", "Long March 5"],
+        "correct": 1
+      },
+      {
+        "question": "Which country developed the Long March series of rockets?",
+        "options": ["USA", "Russia", "China", "India"],
+        "correct": 2
+      },
+      {
+        "question": "Which rocket carried the Mars Perseverance rover?",
+        "options": ["Falcon 9", "Atlas V", "Delta IV Heavy", "Soyuz"],
+        "correct": 1
+      },
+      {
+        "question": "What is 'staging' in rockets?",
+        "options": ["Separating sections to shed weight", "Fueling process", "Navigation system", "Payload deployment"],
+        "correct": 0
+      },
+      {
+        "question": "Which rocket set the record for heaviest payload to orbit?",
+        "options": ["Saturn V", "Falcon Heavy", "Delta IV Heavy", "Ariane 5"],
+        "correct": 1
+      },
+      {
+        "question": "Which rocket carries satellites into geostationary orbit?",
+        "options": ["Delta IV Heavy", "Soyuz", "Ariane 5", "Falcon 1"],
+        "correct": 2
+      },
+      {
+        "question": "What does 'thrust-to-weight ratio' measure in rockets?",
+        "options": ["Engine efficiency", "Fuel consumption", "Lift vs weight", "Rocket acceleration capability"],
+        "correct": 3
+      },
+      {
+        "question": "Which engine type is commonly used in upper stages of rockets?",
+        "options": ["Solid rocket", "Liquid-fueled", "Hybrid", "Ion thruster"],
+        "correct": 1
+      },
+      {
+        "question": "Which rocket launched the Hubble Space Telescope?",
+        "options": ["Space Shuttle Discovery", "Delta II", "Ariane 5", "Saturn V"],
+        "correct": 0
+      }
+    ],
+    "Hard": [
+      {
+        "question": "Which rocket first reached escape velocity from Earth?",
+        "options": ["Saturn V", "Atlas V", "V-2", "Falcon 9"],
+        "correct": 2
+      },
+      {
+        "question": "Which rocket uses the Merlin engine?",
+        "options": ["Falcon 9", "Saturn V", "Delta IV Heavy", "Soyuz"],
+        "correct": 0
+      },
+      {
+        "question": "Which rocket uses solid rocket boosters along with liquid fuel?",
+        "options": ["Saturn V", "Space Shuttle", "Falcon Heavy", "Long March 5"],
+        "correct": 1
+      },
+      {
+        "question": "Which rocket carried the Juno mission to Jupiter?",
+        "options": ["Atlas V", "Delta IV Heavy", "Falcon 9", "Saturn V"],
+        "correct": 0
+      },
+      {
+        "question": "Which rocket uses cryogenic fuel for its upper stage?",
+        "options": ["Ariane 5", "Falcon 9", "Saturn V", "Delta II"],
+        "correct": 0
+      },
+      {
+        "question": "Which rocket launched the first commercial satellite into orbit?",
+        "options": ["Ariane 1", "Saturn I", "Delta IV Heavy", "Falcon 1"],
+        "correct": 0
+      },
+      {
+        "question": "Which Russian rocket family has been in continuous use since the 1960s?",
+        "options": ["Soyuz", "Proton", "Vostok", "N1"],
+        "correct": 0
+      },
+      {
+        "question": "Which rocket stage is discarded first in a multi-stage rocket?",
+        "options": ["Upper stage", "Second stage", "Booster stage", "Payload fairing"],
+        "correct": 2
+      },
+      {
+        "question": "Which rocket launched the first interplanetary probe?",
+        "options": ["Vostok", "Atlas-Able", "Saturn V", "Ariane 1"],
+        "correct": 1
+      },
+      {
+        "question": "Which rocket program was cancelled after repeated failures in the 1970s?",
+        "options": ["N1", "Saturn IB", "Falcon 1", "Ariane 1"],
+        "correct": 0
+      }
+    ]
+  },
+  "ISRO": {
+    "Easy": [
+      {
+        "question": "What does ISRO stand for?",
+        "options": ["Indian Space Research Organization", "Indian Satellite Research Organization", "International Space Research Organization", "Indian Space Rocket Organization"],
+        "correct": 0
+      },
+      {
+        "question": "In which year was ISRO founded?",
+        "options": ["1962", "1969", "1975", "1984"],
+        "correct": 1
+      },
+      {
+        "question": "Who is known as the father of the Indian space program?",
+        "options": ["APJ Abdul Kalam", "Vikram Sarabhai", "Satish Dhawan", "ISRO Chairman"],
+        "correct": 1
+      },
+      {
+        "question": "Which is India’s first satellite?",
+        "options": ["INSAT-1A", "Aryabhata", "Rohini", "GSAT-1"],
+        "correct": 1
+      },
+      {
+        "question": "Which launch vehicle is used for most Indian satellites?",
+        "options": ["PSLV", "GSLV", "Ariane 5", "Falcon 9"],
+        "correct": 0
+      },
+      {
+        "question": "Where is ISRO headquarters located?",
+        "options": ["Bangalore", "Chennai", "Mumbai", "Hyderabad"],
+        "correct": 0
+      },
+      {
+        "question": "Which Indian satellite launched in 2019 aimed at studying the Sun?",
+        "options": ["Chandrayaan-2", "RISAT-2B", "Aditya-L1", "GSAT-6A"],
+        "correct": 2
+      },
+      {
+        "question": "Which ISRO mission successfully landed on the Moon in 2019?",
+        "options": ["Chandrayaan-1", "Chandrayaan-2", "Mangalyaan", "PSLV-C37"],
+        "correct": 1
+      },
+      {
+        "question": "Which is India’s first interplanetary mission?",
+        "options": ["Mangalyaan", "Chandrayaan-1", "RISAT", "INSAT"],
+        "correct": 0
+      },
+      {
+        "question": "Which ISRO launch vehicle is heavier and used for geostationary satellites?",
+        "options": ["PSLV", "GSLV", "Falcon 9", "Ariane 5"],
+        "correct": 1
+      }
+    ],
+    "Medium": [
+      {
+        "question": "Which satellite launched by ISRO provides weather forecasting?",
+        "options": ["INSAT series", "Chandrayaan series", "Mangalyaan", "RISAT series"],
+        "correct": 0
+      },
+      {
+        "question": "Which ISRO mission launched 104 satellites in a single flight?",
+        "options": ["PSLV-C37", "GSLV-MkIII", "PSLV-C34", "PSLV-C25"],
+        "correct": 0
+      },
+      {
+        "question": "Which ISRO launch vehicle is capable of carrying heavier payloads to GTO?",
+        "options": ["PSLV", "GSLV Mk III", "Rohini", "PSLV-XL"],
+        "correct": 1
+      },
+      {
+        "question": "Which ISRO satellite series is used for Earth observation?",
+        "options": ["INSAT", "IRS", "GSAT", "Chandrayaan"],
+        "correct": 1
+      },
+      {
+        "question": "Who succeeded Vikram Sarabhai as ISRO chairman?",
+        "options": ["APJ Abdul Kalam", "Satish Dhawan", "K. Radhakrishnan", "S. Somanath"],
+        "correct": 1
+      },
+      {
+        "question": "Which ISRO satellite helps in disaster management?",
+        "options": ["RISAT", "INSAT", "GSAT", "Chandrayaan"],
+        "correct": 0
+      },
+      {
+        "question": "Which ISRO mission studied Mars in 2014?",
+        "options": ["Mangalyaan", "Chandrayaan-2", "Aditya-L1", "Cartosat-2"],
+        "correct": 0
+      },
+      {
+        "question": "Which rocket launched Chandrayaan-1 to the Moon?",
+        "options": ["PSLV-C11", "GSLV Mk II", "PSLV-C9", "GSLV Mk III"],
+        "correct": 0
+      },
+      {
+        "question": "Which is India’s first radar imaging satellite?",
+        "options": ["RISAT-1", "INSAT-3C", "GSAT-6", "Cartosat-1"],
+        "correct": 0
+      },
+      {
+        "question": "Which ISRO mission aims to study the Sun’s corona?",
+        "options": ["Aditya-L1", "Chandrayaan-2", "Mangalyaan", "GSAT-10"],
+        "correct": 0
+      }
+    ],
+    "Hard": [
+      {
+        "question": "Which ISRO mission was India's first soft lunar landing attempt?",
+        "options": ["Chandrayaan-1", "Chandrayaan-2", "Mangalyaan", "RISAT-1"],
+        "correct": 1
+      },
+      {
+        "question": "Which launch vehicle carried Chandrayaan-2 to orbit?",
+        "options": ["PSLV-C37", "GSLV Mk III", "PSLV-C11", "GSLV Mk II"],
+        "correct": 1
+      },
+      {
+        "question": "Which ISRO mission discovered water molecules on the Moon?",
+        "options": ["Chandrayaan-1", "Chandrayaan-2", "Mangalyaan", "RISAT-2B"],
+        "correct": 0
+      },
+      {
+        "question": "Which Indian scientist was the chairman of ISRO during Mangalyaan launch?",
+        "options": ["Vikram Sarabhai", "Satish Dhawan", "K. Radhakrishnan", "S. Somanath"],
+        "correct": 2
+      },
+      {
+        "question": "Which ISRO rocket family is used for heavy geostationary satellites?",
+        "options": ["PSLV", "GSLV Mk III", "Falcon 9", "Ariane 5"],
+        "correct": 1
+      },
+      {
+        "question": "Which satellite was launched by ISRO to monitor cartography and urban planning?",
+        "options": ["Cartosat series", "RISAT series", "INSAT series", "GSAT series"],
+        "correct": 0
+      },
+      {
+        "question": "Which launch vehicle family was used to send the Mars Orbiter Mission?",
+        "options": ["PSLV", "GSLV", "Falcon Heavy", "Ariane 5"],
+        "correct": 0
+      },
+      {
+        "question": "Which ISRO mission was launched using PSLV-C25?",
+        "options": ["Mars Orbiter Mission", "Chandrayaan-1", "Chandrayaan-2", "Cartosat-2"],
+        "correct": 0
+      },
+      {
+        "question": "Which ISRO satellite monitors weather and climate from geostationary orbit?",
+        "options": ["INSAT-3D", "IRS-1C", "GSAT-6", "RISAT-1"],
+        "correct": 0
+      },
+      {
+        "question": "Which ISRO satellite provides communication for rural telephony?",
+        "options": ["GSAT-6A", "INSAT-3B", "RISAT-2", "Cartosat-1"],
+        "correct": 0
+      }
+    ]
+  }
+}

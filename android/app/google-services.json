@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "196550173747",
+    "project_id": "isro-c62b3",
+    "storage_bucket": "isro-c62b3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196550173747:android:42797404b954c69044ef46",
+        "android_client_info": {
+          "package_name": "com.isro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApWE2wbrqgUGQyxZkO8fPlatO-HIV92tI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,70 @@
+plugins {
+    id "com.android.application"
+    id "org.jetbrains.kotlin.android" // use full id for Kotlin
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader("UTF-8") { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty("flutter.versionCode") ?: "1"
+def flutterVersionName = localProperties.getProperty("flutter.versionName") ?: "1.0"
+
+android {
+    namespace "com.isro"
+    compileSdk flutter.compileSdkVersion
+    ndkVersion flutter.ndkVersion
+
+    defaultConfig {
+        applicationId "com.isro"
+        minSdk 23
+        targetSdk flutter.targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        multiDexEnabled true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    sourceSets {
+        main.java.srcDirs += "src/main/kotlin"
+    }
+
+    buildTypes {
+        release {
+            // ⚠️ replace with real signingConfig later (not debug)
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+}
+
+flutter {
+    source "../.."
+}
+
+dependencies {
+    // Firebase BoM (keeps all Firebase libs aligned)
+    implementation platform("com.google.firebase:firebase-bom:33.5.1")
+
+    // Firebase products
+    implementation "com.google.firebase:firebase-analytics"
+    implementation "androidx.multidex:multidex:2.0.1"
+
+    // Add other Firebase libs as needed
+    // e.g. implementation "com.google.firebase:firebase-auth"
+}
